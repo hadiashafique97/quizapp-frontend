@@ -3,7 +3,7 @@ import { Form } from 'antd'
 import {Link} from 'react-router-dom'
 function Login() {
 const onFinish = (values)=>{
-
+  console.log(values)
 }
 
   return (
