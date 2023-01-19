@@ -1,0 +1,16 @@
+:root{
+    --primary :#FEE2C5;
+    --secondary :#C4DDFF;
+    --success :#A0E4CB;
+    --info : #7f93cf;
+    --warning: #EB455F;
+    --danger : #fab88cf9;
+    --light : #E8F3D6;
+    --dark: #354259;
+    --blueish : #7197bd;
+
+}
+
+.bg-primary{
+    background-color: var(--primary);
+}

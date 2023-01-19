@@ -1,0 +1,8 @@
+.tile{
+    box-shadow: 2px 2px 2px var(--dark);
+}
+
+.divider{
+    
+    border-bottom: 12px solid var(--dark)
+}

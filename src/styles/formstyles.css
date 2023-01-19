@@ -1,0 +1,24 @@
+input{
+    height:40px;
+    padding:10px 20px;
+    border:2px solid var(--info);
+    box-shadow: 10px 10px var(--secondary);
+    width:100%;
+    
+}
+
+.primary-btn{
+    height:50px;
+    background-color: var(--dark);
+    color:black;
+    font-weight: bold;
+    padding: 8px 10px;
+}
+
+.ant-form-item{
+    margin-bottom:10px !important;
+}
+button:hover{
+    
+    background-color:var(--secondary);
+}
