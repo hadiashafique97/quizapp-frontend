@@ -14,7 +14,8 @@ import {BrowserRouter as Router, Routes, Route} from 'react-router-dom' // setti
 // two different routes login and register 
 import Login from './pages/common/login/login-index'
 import Register from './pages/common/register/register-index'
-
+import ProtectedRoute from './Components/ProtectedRoute'
+import Home from './pages/common/Home/Home-index'
 
 
 
@@ -24,6 +25,9 @@ function App() {
     <Routes>
       <Route path='/login' element={<Login/>}/>
       <Route path='/register' element={<Register/>}/>
+      <Route path="/" element={<ProtectedRoute>
+        <Home/>
+      </ProtectedRoute>}/>
     </Routes>
     </Router>
   )
