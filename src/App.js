@@ -12,8 +12,8 @@ import '../src/styles/formstyles.css'
 //importing my variables 
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom' // setting up the routes 
 // two different routes login and register 
-import Login from './pages/common/login'
-import Register from './pages/common/register'
+import Login from './pages/common/login/login-index'
+import Register from './pages/common/register/register-index'
 
 
 

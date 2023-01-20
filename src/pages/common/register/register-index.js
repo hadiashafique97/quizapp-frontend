@@ -3,13 +3,14 @@ import { Form, message } from 'antd'
 import { Link } from 'react-router-dom'
 import { registerNewUser } from '../../../services/User-api'
 function Register() {
+  
   const onFinish = async (values) => {
     try {
       const response = await registerNewUser(values)
       if (response.success) {
         message.success(response.message)
       } else {
-        message.e(response.message)
+        message.error(response.message)
       }
     } catch (error) {
       message.error(error.message)
@@ -17,7 +18,7 @@ function Register() {
   }
 
   return (
-    <div className='flex justify-center item-center h-screen w-screen'>
+    <div className='flex justify-center item-center h-screen w-screen bg-primary'>
       <div className="tile w450 p4 ">
         <div className='flex flex-col'>
           <h1 className='text-2xl'>
@@ -36,7 +37,7 @@ function Register() {
             </Form.Item>
             <div className='flex flex-col gap1'>
               <button className="primary-btn text-md mtop3 w100" type="submit">Create User</button>
-              <Link to="/login" className='underline'> Existing User? </Link>
+              <Link to="/login" className='underline ptop1'> Existing User? </Link>
             </div>
           </Form>
         </div>

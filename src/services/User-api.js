@@ -1,12 +1,22 @@
-const { default : axiosInstance } = require("./index-api")
+const { default: axiosInstance } = require("./index-api")
 
 
 export const registerNewUser = async (payload) => {
-    try{
-      const response =  await axiosInstance.post('api/users/register', payload)
-      return response.data
-    }
-    catch (error){
-        return error.response.data
-    }
+  try {
+    const response = await axiosInstance.post('api/users/register', payload)
+    return response.data
+  }
+  catch (error) {
+    return error.response.data
+  }
 }
+
+export const loginExistingUser = async (payload) => {
+  try {
+    const response = await axiosInstance.post('/api/users/login', payload)
+    return response.data
+  } catch (error) {
+    return error.response.data
+  }
+}
+
