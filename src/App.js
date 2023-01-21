@@ -8,7 +8,7 @@ import '../src/styles/text.css'
 import '../src/styles/structure.css'
 import'../src/styles/custom-styles.css'
 import '../src/styles/formstyles.css'
-
+import '../src/styles/layout.css'
 //importing my variables 
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom' // setting up the routes 
 // two different routes login and register 
@@ -16,6 +16,8 @@ import Login from './pages/common/login/login-index'
 import Register from './pages/common/register/register-index'
 import ProtectedRoute from './Components/ProtectedRoute'
 import Home from './pages/common/Home/Home-index'
+import Test from './pages/admin/Tests/Test'
+import CreateEditTest from './pages/admin/Tests/CreateEditTest'
 
 
 
@@ -23,11 +25,35 @@ function App() {
   return (
     <Router>
     <Routes>
+     //every one 
       <Route path='/login' element={<Login/>}/>
       <Route path='/register' element={<Register/>}/>
+       //user routes 
       <Route path="/" element={<ProtectedRoute>
         <Home/>
-      </ProtectedRoute>}/>
+      </ProtectedRoute>
+    }
+    />
+
+    //admin routes 
+
+     <Route path="/admin/tests" element={<ProtectedRoute>
+        <Test/>
+      </ProtectedRoute>
+    }
+    />
+    <Route path="/admin/tests/add" element={<ProtectedRoute>
+        <CreateEditTest/>
+      </ProtectedRoute>
+    }
+    />
+    <Route path="/admin/tests/edit/:id" element={<ProtectedRoute>
+        <CreateEditTest/>
+      </ProtectedRoute>
+    }
+    />
+    
+    
     </Routes>
     </Router>
   )

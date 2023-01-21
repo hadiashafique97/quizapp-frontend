@@ -13,8 +13,21 @@ input{
     color:black;
     font-weight: bold;
     padding: 8px 10px;
+    
 }
 
+.create-button{
+    background-color: var(--secondary);
+    color:black;
+    font-weight: bold;
+    padding: 8px 10px;
+    box-shadow: 2px 2px 2px var(--dark);
+    border-radius: 12px;
+}
+.create-button:hover{
+    background-color: var(--dark);
+    cursor: pointer;
+}
 .ant-form-item{
     margin-bottom:10px !important;
 }
