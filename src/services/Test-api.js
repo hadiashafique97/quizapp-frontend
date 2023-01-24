@@ -53,3 +53,14 @@ export const deleteTestById = async (payload) =>{
         return error.response.data
     }
 }
+
+// adding a question 
+
+export const addingAQuestion = async (payload)=>{
+    try {
+        const response = await axiosInstance.post("/api/tests/add-question-to-test", payload)
+        return response.data
+    } catch (error) {
+        return error.response.data        
+    }
+}
