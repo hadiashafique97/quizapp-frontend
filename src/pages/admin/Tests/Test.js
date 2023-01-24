@@ -84,12 +84,14 @@ function Test() {
     }, [])
     return (
         <div>
-            <div className='flex justify-between mtop1 p1'>
+            <div className='flex justify-between mtop1  item-end '>
                 <PageTitle title="Tests" />
+                <div className='p-bottom1'>
                 <button className='create-button flex item-center' onClick={() => navigate("/admin/tests/add")}>
                     <i className='ri-add-line'></i>
                     Create Test
                 </button>
+                </div>
             </div>
             <div className="divider2"> </div>
             <Table columns={columns} dataSource={tests} />

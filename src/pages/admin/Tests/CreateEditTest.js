@@ -2,7 +2,7 @@ import { Col, Form, message, Row, Table, Tabs, } from 'antd'
 
 import React, { useEffect } from 'react'
 import PageTitle from '../../../Components/PageTitle'
-import { addTest, editTestById, getTestById } from '../../../services/Test-api'
+import { addTest, deleteQuestionById, editTestById, getTestById } from '../../../services/Test-api'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { ShowSpinner, HideSpinner } from '../../../reducers/spinnerSlice'
@@ -15,7 +15,7 @@ function CreateEditTest() {
   const params = useParams()
   const [testData, setTestData] = React.useState(null)
   const [showCreateEditQuestion, setShowCreateEditQuestion] = React.useState(false)
-  const [selectedQuestion, setselectedQuestion] =React.useState(null)
+  const [selectedQuestion, setSelectedQuestion] =React.useState(null)
 
 
 
@@ -64,6 +64,25 @@ function CreateEditTest() {
       getTestsData()
     }
   }, [])
+  const deleteQuestion = async(questionId)=>{
+    try {
+      dispatch(ShowSpinner())
+      const response = await deleteQuestionById({
+        questionId, 
+        testId: params.id,
+      })
+      dispatch(HideSpinner())
+      if (response.success){
+        message.success(response.message)
+        getTestsData()
+      }else {
+        message.error(response.message)
+      }
+    } catch (error) {
+      dispatch(HideSpinner())
+      message.error(error.message)
+    }
+  }
   const questionsColumns = [
     {
       title: "Question",
@@ -91,9 +110,11 @@ function CreateEditTest() {
       dataIndex: "edit/delete",
       render: (text, record) => (
         <div className='flex gap3'>
-          <i className="ri-pencil-fill" onClick={() => {setselectedQuestion(record)
+          <i className="ri-pencil-fill" onClick={() => {setSelectedQuestion(record)
           setShowCreateEditQuestion(true)}}></i>
-          <i className="ri-delete-bin-3-fill" ></i>
+          <i className="ri-delete-bin-3-fill" onClick={() => {
+            deleteQuestion(record._id)
+          }}></i>
         </div>
       )
     },
@@ -151,11 +172,12 @@ function CreateEditTest() {
             <TabPane tab="Test Questions?" key="2">
               <div className='flex justify-end'>
 
-                <button className='create-button ptop2' type='button' onClick={() => setShowCreateEditQuestion(true)} >Add Question?</button>
+                <button className='create-button ' type='button' onClick={() => setShowCreateEditQuestion(true)} >Add Question?</button>
               </div>
-
+              <div className= "ptop1">
               <Table columns={questionsColumns}
               dataSource={testData?.questions || []} />
+              </div>
             </TabPane>
           )}
 
@@ -169,6 +191,8 @@ function CreateEditTest() {
         showCreateEditQuestion={showCreateEditQuestion}
         testId={params.id}
         refreshData={getTestsData}
+        selectedQuestion={selectedQuestion}
+        setSelectedQuestion={setSelectedQuestion}
 
       />}
     </div>

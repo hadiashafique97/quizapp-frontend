@@ -3,9 +3,9 @@ import FormItem from 'antd/es/form/FormItem'
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { HideSpinner, ShowSpinner } from '../../../reducers/spinnerSlice'
-import { addingAQuestion } from '../../../services/Test-api'
+import { addingAQuestion, editQuestionById } from '../../../services/Test-api'
 
-function CreateEditQuestion({ setShowCreateEditQuestion, showCreateEditQuestion, refreshData, testId }) {
+function CreateEditQuestion({ setShowCreateEditQuestion, showCreateEditQuestion, refreshData, testId, selectedQuestion, setSelectedQuestion }) {
     const dispatch = useDispatch()
     const onFinish = async (values) => {
         try {
@@ -21,7 +21,15 @@ function CreateEditQuestion({ setShowCreateEditQuestion, showCreateEditQuestion,
                 },
                 test: testId,
             }
-            const response = await addingAQuestion(requiredPayload)
+            let response
+            if(selectedQuestion){
+                response = await editQuestionById({
+                    ...requiredPayload,
+                    questionId: selectedQuestion._id,
+                })
+            }else{
+                response = await addingAQuestion(requiredPayload)
+            }
             if (response.success) {
                 message.success(response.message)
                 refreshData()
@@ -29,6 +37,7 @@ function CreateEditQuestion({ setShowCreateEditQuestion, showCreateEditQuestion,
             } else {
                 message.error(response.message)
             }
+            setSelectedQuestion(null)
             dispatch(HideSpinner())
         } catch (error) {
             dispatch(HideSpinner())
@@ -38,9 +47,22 @@ function CreateEditQuestion({ setShowCreateEditQuestion, showCreateEditQuestion,
 
 
     return (
-        <Modal title="Add Question?" open={showCreateEditQuestion} footer={false} onCancel={() => setShowCreateEditQuestion(false)}>
+        <Modal title={selectedQuestion ? "Edit Question" : "Add Question"} open={showCreateEditQuestion} footer={false} onCancel={() => {setShowCreateEditQuestion(false)
+            setSelectedQuestion(null)
+        }}>
             <div className="divider2 mbot1" > </div>
-            <Form onFinish={onFinish} layout="horizontal" >
+            <Form onFinish={onFinish} layout="horizontal"
+            initialValues={{
+                name: selectedQuestion?.name,
+                A: selectedQuestion?.choices?.A,
+                B: selectedQuestion?.choices?.B,
+                C: selectedQuestion?.choices?.C,
+                D: selectedQuestion?.choices?.D,
+                correctAnswer: selectedQuestion?.correctAnswer,
+            }}
+            
+            
+            >
                 <Form.Item name="name" label="Question">
                     <input type="text" />
                 </Form.Item>

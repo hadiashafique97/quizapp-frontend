@@ -13,7 +13,7 @@ export const addTest = async (payload) => {
 
 // get all tests 
 
-export const getAllTests = async () =>{
+export const getAllTests = async () => {
     try {
         const response = await axiosInstance.post("/api/tests/get-all-tests")
         return response.data
@@ -24,7 +24,7 @@ export const getAllTests = async () =>{
 
 // test by id 
 
-export const getTestById = async (payload) =>{
+export const getTestById = async (payload) => {
     try {
         const response = await axiosInstance.post("/api/tests/get-test-by-id", payload)
         return response.data
@@ -34,7 +34,7 @@ export const getTestById = async (payload) =>{
 }
 
 //editing specific test by id 
-export const editTestById = async (payload) =>{
+export const editTestById = async (payload) => {
     try {
         const response = await axiosInstance.post("/api/tests/edit-test-by-id", payload)
         return response.data
@@ -45,7 +45,7 @@ export const editTestById = async (payload) =>{
 
 // deleting test by id 
 
-export const deleteTestById = async (payload) =>{
+export const deleteTestById = async (payload) => {
     try {
         const response = await axiosInstance.post("/api/tests/delete-test-by-id", payload)
         return response.data
@@ -56,11 +56,32 @@ export const deleteTestById = async (payload) =>{
 
 // adding a question 
 
-export const addingAQuestion = async (payload)=>{
+export const addingAQuestion = async (payload) => {
     try {
         const response = await axiosInstance.post("/api/tests/add-question-to-test", payload)
         return response.data
     } catch (error) {
-        return error.response.data        
+        return error.response.data
     }
+}
+
+//editing that question
+
+export const editQuestionById = async (payload) => {
+    try {
+        const response = await axiosInstance.post("/api/tests//edit-question-in-test", payload)
+        return response.data
+    } catch (error) {
+        return error.response.data
+    }
+}
+
+// deleting question
+export const deleteQuestionById = async(payload) =>{
+try {
+    const response = await axiosInstance.post("/api/tests/delete-question-in-test", payload)
+    return response.data
+} catch (error) {
+    return error.response.data
+}
 }
