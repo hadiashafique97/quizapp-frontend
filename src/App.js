@@ -16,13 +16,19 @@ import Login from './pages/common/login/login-index'
 import Register from './pages/common/register/register-index'
 import ProtectedRoute from './Components/ProtectedRoute'
 import Home from './pages/common/Home/Home-index'
-import Test from './pages/admin/Tests/Test'
+import Tests from './pages/admin/Tests/Test'
 import CreateEditTest from './pages/admin/Tests/CreateEditTest'
+import Spinner from './Components/Spinner'
+import { useSelector } from 'react-redux'
 
 
 
 function App() {
+      const {loading} = useSelector(state =>state.loader)
+
   return (
+    <>
+    {loading && <Spinner/>}
     <Router>
     <Routes>
      //every one 
@@ -38,7 +44,7 @@ function App() {
     //admin routes 
 
      <Route path="/admin/tests" element={<ProtectedRoute>
-        <Test/>
+        <Tests/>
       </ProtectedRoute>
     }
     />
@@ -56,6 +62,7 @@ function App() {
     
     </Routes>
     </Router>
+    </>
   )
 }
 

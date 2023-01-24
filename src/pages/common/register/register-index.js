@@ -2,17 +2,22 @@ import React from 'react'
 import { Form, message } from 'antd'
 import { Link } from 'react-router-dom'
 import { registerNewUser } from '../../../services/User-api'
+import { useDispatch } from 'react-redux'
+import { ShowSpinner, HideSpinner } from '../../../reducers/spinnerSlice'
 function Register() {
-  
+  const dispatch = useDispatch()
   const onFinish = async (values) => {
     try {
+      dispatch(ShowSpinner())
       const response = await registerNewUser(values)
+      dispatch(HideSpinner())
       if (response.success) {
         message.success(response.message)
       } else {
         message.error(response.message)
       }
     } catch (error) {
+      dispatch(HideSpinner())
       message.error(error.message)
     }
   }

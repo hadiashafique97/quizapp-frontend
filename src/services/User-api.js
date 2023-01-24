@@ -28,3 +28,4 @@ export const getUserInfo = async () =>{
     return error.response.data
   }
 }
+

@@ -1,9 +1,9 @@
-input{
-    height:40px;
-    padding:10px 20px;
-    border:2px solid var(--info);
-    box-shadow: 10px 10px var(--secondary);
-    width:100%;
+input, select{
+    height:40px !important; 
+    padding:10px 20px !important;
+    border:2px solid var(--info) !important;
+    box-shadow: 10px 10px var(--secondary) !important;
+    width:100% !important;
     
 }
 

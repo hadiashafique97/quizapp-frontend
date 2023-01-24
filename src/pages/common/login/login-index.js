@@ -3,10 +3,15 @@ import { Form, message } from 'antd'
 
 import { Link } from 'react-router-dom'
 import { loginExistingUser } from '../../../services/User-api'
+import { useDispatch } from 'react-redux'
+import { ShowSpinner, HideSpinner } from '../../../reducers/spinnerSlice'
 function Login() {
+  const dispatch = useDispatch()
   const onFinish = async (values) => {
     try {
+      dispatch(ShowSpinner())
       const response = await loginExistingUser(values)
+      dispatch(HideSpinner())
       if (response.success) {
         message.success(response.message)
         localStorage.setItem("token", response.data)
@@ -15,6 +20,7 @@ function Login() {
         message.error(response.message)
       }
     } catch (error) {
+      dispatch(HideSpinner())
       message.error(error.message)
     }
   }

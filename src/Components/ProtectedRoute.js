@@ -5,8 +5,10 @@ import { getUserInfo } from '../services/User-api'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { SetUser } from "../reducers/usersSlice"
+import { ShowSpinner, HideSpinner } from '../reducers/spinnerSlice'
 
 function ProtectedRoute({ children }) {
+  
   const { user } = useSelector((state) => state.users)
   const navigate = useNavigate()
 
@@ -48,25 +50,25 @@ function ProtectedRoute({ children }) {
       title: "Home",
       paths: ['/'],
       icon: <i className="ri-home-heart-fill"></i>,
-      onClick: () => navigate("/")
+      onClick: () => navigate("/"),
     },
     {
       title: "Tests",
-      paths: ['/admin/tests', '/admin/tests/add'],
+      paths: ["/admin/tests", "/admin/tests/add"],
       icon: <i class="ri-file-edit-fill"></i>,
-      onClick: () => navigate("/admin/tests")
+      onClick: () => navigate("/admin/tests"),
     },
     {
       title: "Results",
       paths: ["/resutls"],
       icon: <i className="ri-folder-chart-fill"></i>,
-      onClick: () => navigate("/admin/results")
+      onClick: () => navigate("/admin/results"),
     },
     {
       title: "Profile",
       paths: ["/profile"],
       icon: <i className="ri-user-3-fill"></i>,
-      onClick: () => navigate("/profile")
+      onClick: () => navigate("/profile"),
     },
     {
       title: "Logout",
@@ -75,14 +77,17 @@ function ProtectedRoute({ children }) {
       onClick: () => {
         localStorage.removeItem("token")
         navigate("/login")
-      }
+      },
     }
 
   ]
   const dispatch = useDispatch()
+
   const getUserData = async () => {
     try {
+      dispatch(ShowSpinner())
       const response = await getUserInfo()
+      dispatch(HideSpinner())
       if (response.success) {
         dispatch(SetUser(response.data))
         if (response.data.isAdmin) {
@@ -94,6 +99,7 @@ function ProtectedRoute({ children }) {
         message.error(response.message)
       }
     } catch (error) {
+      dispatch(HideSpinner())
       message.error(error.message)
     }
   }
@@ -102,10 +108,14 @@ function ProtectedRoute({ children }) {
     getUserData()
   }, [])
   const activeRoute = window.location.pathname
-  const getIsActiveOrNot =(paths) =>{
+  
+  const getIsActiveOrNot = (paths) => {
     if (paths.includes(activeRoute)){
       return true
-    }else {
+    } else {
+      if(activeRoute.includes("/admin/tests/edit") && paths.includes("/admin/tests")){
+        return true
+      }
       return false
     }
   }
@@ -115,11 +125,13 @@ function ProtectedRoute({ children }) {
         <div className='sidebar'>
           <div className='menu'>
             {menu.map((item, index) => {
-              return <div className={`menu-item ${getIsActiveOrNot(item.paths) && 'active-menu-item'}`}
+              return(
+               <div className={`menu-item ${getIsActiveOrNot(item.paths) && 'active-menu-item'}`}
                 key={index} onClick={item.onClick}>
                 {item.icon}
                 {!collapsed &&<span>{item.title}</span> }
               </div>
+              )
             })}
           </div>
         </div>
