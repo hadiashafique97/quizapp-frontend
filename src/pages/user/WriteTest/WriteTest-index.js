@@ -227,7 +227,7 @@ function WriteTest() {
 
                             </div>
                             <div className=' flex m1 lottie'>
-                                {result.finalResult === "Pass" && (<lottie-player src="https://assets3.lottiefiles.com/packages/lf20_4qldwfx4.json" background="transparent" speed="1" loop autoplay></lottie-player>
+                                {result.finalResult === "Pass" && (<lottie-player src="https://assets5.lottiefiles.com/packages/lf20_ppgwjBSvyJ.json"  background="transparent"  speed="2"  autoplay></lottie-player>
                                 )}
                                 {result.finalResult === "Fail" && (<lottie-player src="https://assets5.lottiefiles.com/packages/lf20_9xRnlw.json" background="transparent" speed="1" loop autoplay></lottie-player>)}
                             </div>
