@@ -18,13 +18,13 @@ function ProtectedRoute({ children }) {
   const userMenu = [
     {
       title: "Home",
-      paths: ['/'],
+      paths: ['/', "/user/write-test"],
       icon: <i className="ri-home-heart-fill"></i>,
       onClick: () => navigate("/")
     },
     {
       title: "Results",
-      paths: ["/resutls"],
+      paths: ["/results"],
       icon: <i className="ri-folder-chart-fill"></i>,
       onClick: () => navigate("/results")
     },
@@ -48,7 +48,7 @@ function ProtectedRoute({ children }) {
   const adminMenu = [
     {
       title: "Home",
-      paths: ['/'],
+      paths: ['/', "/user/write-test"],
       icon: <i className="ri-home-heart-fill"></i>,
       onClick: () => navigate("/"),
     },
@@ -121,8 +121,11 @@ function ProtectedRoute({ children }) {
       if(activeRoute.includes("/admin/tests/edit") && paths.includes("/admin/tests")){
         return true
       }
-      return false
+      if(activeRoute.includes("/user/write-test") && paths.includes("/user/write-test")){
+        return true
+      }
     }
+    return false
   }
   return (
     <div className='layout'>

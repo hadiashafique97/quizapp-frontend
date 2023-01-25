@@ -20,6 +20,9 @@
 .w450{
     width: 450px;
 }
+.w350{
+    width: 350px;
+}
 .w100{
     width:100%;
 }
@@ -41,6 +44,9 @@
 
 .flex-col{
     flex-direction: column;
+}
+.flex-row{
+    flex-direction: row;
 }
 
 .justify-center{
@@ -119,6 +125,10 @@
     
     padding-top:15px;
  }
+ .ptop5{
+    
+    padding-top:55px;
+ }
 
  .mtop1{
     margin-top:10px;
@@ -134,4 +144,13 @@
  }
  .mbot1{
 margin-bottom: 10px;
+ }
+ .m1{
+    margin: 10px;
+ }
+ .m2{
+    margin: 20px;
+ }
+ .m3{
+    margin: 30px;
  }
