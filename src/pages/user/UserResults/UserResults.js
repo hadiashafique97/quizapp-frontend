@@ -82,9 +82,9 @@ function UserResults() {
         <div>
             <PageTitle title="Results" />
             <div className='divider'></div>
-           
+            <div className='flex m2'>
                <Table columns={columns} dataSource={resultsData} /> 
-         
+         </div>
             
         </div>
     )
