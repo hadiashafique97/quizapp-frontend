@@ -21,6 +21,7 @@ import CreateEditTest from './pages/admin/Tests/CreateEditTest'
 import Spinner from './Components/Spinner'
 import { useSelector } from 'react-redux'
 import WriteTest from './pages/user/WriteTest/WriteTest-index'
+import UserResults from './pages/user/UserResults/UserResults'
 
 
 
@@ -43,6 +44,11 @@ function App() {
           />
           <Route path="/user/write-test/:id" element={<ProtectedRoute>
             <WriteTest />
+          </ProtectedRoute>
+          }
+          />
+          <Route path="/user/results" element={<ProtectedRoute>
+            <UserResults />
           </ProtectedRoute>
           }
           />
