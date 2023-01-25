@@ -94,7 +94,10 @@ function Test() {
                 </div>
             </div>
             <div className="divider2"> </div>
-            <Table columns={columns} dataSource={tests} />
+            <div className='flex m1'>
+                 <Table columns={columns} dataSource={tests} />
+            </div>
+           
 
         </div>
     )

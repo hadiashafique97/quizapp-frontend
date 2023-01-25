@@ -1,37 +1,41 @@
-input, select{
-    height:40px !important; 
-    padding:10px 20px !important;
-    border:2px solid var(--info) !important;
+input,
+select {
+    height: 40px !important;
+    padding: 10px 20px !important;
+    border: 2px solid var(--info) !important;
     box-shadow: 10px 10px var(--secondary) !important;
-    width:100% !important;
-    
+    width: 100% !important;
+
 }
 
-.primary-btn{
-    height:50px;
-    background-color: var(--dark);
-    color:black;
+.primary-btn {
+    height: 50px;
+    background-image: radial-gradient( circle 674px at 18.3% 77%,  rgba(139,186,244,1) 3.4%, rgba(15,51,92,1) 56.6% );
+    
+
+    color: black;
     font-weight: bold;
     padding: 8px 10px;
-    
+
 }
 
-.create-button{
-    background-color: var(--secondary);
-    color:black;
+.create-button {
+    background-image: radial-gradient( circle 674px at 18.3% 77%,  rgba(139,186,244,1) 3.4%, rgba(15,51,92,1) 56.6% );
+    color: black;
     font-weight: bold;
     padding: 8px 10px;
-    box-shadow: 2px 2px 2px var(--dark);
+    box-shadow: 4px 4px 4px var(--dark);
     border-radius: 12px;
 }
-.create-button:hover{
-    background-color: var(--dark);
-    cursor: pointer;
+
+.create-button:hover {
+    background-image: linear-gradient(to top, #4188e5 0%, #4d72a1 100%);
 }
-.ant-form-item{
-    margin-bottom:10px !important;
+
+.ant-form-item {
+    margin-bottom: 10px !important;
 }
-button:hover{
-    
-    background-color:var(--secondary);
+
+.primary-btn:hover {
+    background-image: linear-gradient(to top, #4188e5 0%, #4d72a1 100%);
 }

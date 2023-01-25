@@ -82,7 +82,10 @@ function UserResults() {
         <div>
             <PageTitle title="Results" />
             <div className='divider'></div>
-            <Table columns={columns} dataSource={resultsData} />
+           
+               <Table columns={columns} dataSource={resultsData} /> 
+         
+            
         </div>
     )
 }

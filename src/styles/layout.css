@@ -5,14 +5,14 @@
 }
 
 .sidebar{
-    background-color: var(--secondary);
+    background-image: linear-gradient(to right, #d7d2cc 0%, #304352 100%);
     padding:10px;
     border-radius:10px;
     height:100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 2px 2px 2px var(--dark);
+    box-shadow: 6px 6px 6px var(--dark);
     border-bottom:3px solid var(--dark);
 }
 .menu-item{
@@ -30,7 +30,7 @@
 }
 
 .header{
-    background-color: var(--secondary);
+    background-image: linear-gradient(to right, #d7d2cc 0%, #24333d 100%);
     color: black; 
     width: 100% !important;
     padding: 10px;

@@ -1,71 +1,81 @@
-.tile{
+.tile {
     border-radius: 10px;
-    box-shadow: 2px 6px 6px var(--dark);
-    background-color: var(--primary2);
+    border:2px solid var(--dark);
+    box-shadow: 6px 6px 6px var(--dark);
+    /* background-image: linear-gradient(to right top, #f4f2ef, #f2e8d9, #f0ddc4, #eed2af, #ecc79b); */
+    background-image: linear-gradient( 90.5deg,  rgba(255,207,139,0.50) 1.1%, rgba(255,207,139,1) 81.3% );
     display: flex;
     flex-direction: column !important;
 }
 
-.divider{
-    
+.divider {
+
     border-bottom: 12px dotted var(--dark);
 }
 
-.divider2{
+.divider2 {
     padding-top: 5px;
     border-bottom: 8px dotted var(--dark);
 }
-.divider3{
+
+.divider3 {
     border-bottom: 8px dotted var(--dark);
-    padding:0px; 
+    padding: 0px;
     margin: 0px;
 }
-.spinner-parent{
+
+.spinner-parent {
     position: absolute;
-    inset:0;
-    background-color: rgba(0,0,0,0.4);
-    z-index:10000;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 10000;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.spinner{
+
+.spinner {
     height: 30px;
     width: 50px;
-    border:3px solid var(--dark) ;
+    border: 3px solid var(--dark);
     box-shadow: 4px 4px 6px var(--info);
-    border-radius:20%;
+    border-radius: 20%;
     animation: spinner 1.5s linear infinite;
 }
-.choice{
+
+.choice {
     display: flex;
-    border:2px solid var(--info) !important;
+    border: 2px solid var(--dark) !important;
     box-shadow: 7px 7px var(--secondary) !important;
-    border-radius:20%;
-    width:50%;
+    border-radius: 20%;
+    width: 50%;
     justify-content: center !important;
     align-items: center !important;
 }
-.selected-choice{
+
+.selected-choice {
     background-color: var(--selected);
     border: 2px solid var(--answer);
-    box-shadow: 7px 7px var(--success) ;
-    border-radius:20%;
-    width:50%;
+    box-shadow: 7px 7px var(--success);
+    border-radius: 20%;
+    width: 50%;
     justify-content: center !important;
     align-items: center !important;
 }
-.result{
-    
-    padding:20px;
-   
+
+.result {
+
+    padding: 20px;
+
 }
-.lottie{
+
+.lottie {
     display: flex !important;
-    height:300px;
+    height: 300px;
     width: 300px;
 }
-.timer{
+
+.timer {
     background-color: darkred;
     padding: 10px;
     display: flex;
@@ -74,20 +84,24 @@
     height: 80px;
     width: 80px;
 }
-.choice:hover{
+
+.choice:hover {
     background-color: var(--dark);
     cursor: pointer;
 }
-.navbtn:hover{
+
+.navbtn:hover {
     cursor: pointer;
-    transform:scale(1.1);
-    color:var(--warning)
+    transform: scale(1.1);
+    color: var(--warning)
 }
+
 @keyframes spinner {
-    0%{
+    0% {
         transform: rotate(0deg);
     }
-    100%{
+
+    100% {
         transform: rotate(360deg);
     }
 }

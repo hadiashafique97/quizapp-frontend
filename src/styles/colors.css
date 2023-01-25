@@ -1,11 +1,11 @@
 :root{
-    --primary :#FEE2C5;
+    --primary :#fbd0be;
     --primary2: #DEB6AB;
     --secondary :#C4DDFF;
     --success :#7fb5a1;
     --info : #7f93cf;
     --warning: #b0515f;
-    --danger : #fab88cf9;
+    --danger : #e48b51f9;
     --light : #E8F3D6;
     --dark: #354259;
     --blueish : #7197bd;
@@ -14,9 +14,13 @@
 
 }
 
-.bg-primary{
-    background-color: var(--primary);
+.bg-primary{   
+  background: #ffd89b;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #19547b, #ffd89b);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #19547b, #ffd89b); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
+
 
 .bg-pass{
   background-color: var(--success) !important;   
