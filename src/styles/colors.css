@@ -2,9 +2,9 @@
     --primary :#FEE2C5;
     --primary2: #DEB6AB;
     --secondary :#C4DDFF;
-    --success :#A0E4CB;
+    --success :#7fb5a1;
     --info : #7f93cf;
-    --warning: #EB455F;
+    --warning: #b0515f;
     --danger : #fab88cf9;
     --light : #E8F3D6;
     --dark: #354259;
@@ -17,3 +17,10 @@
 .bg-primary{
     background-color: var(--primary);
 }
+
+.bg-pass{
+  background-color: var(--success) !important;   
+}
+.bg-fail{
+    background-color: var(--warning) !important;   
+  }

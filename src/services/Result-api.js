@@ -13,9 +13,9 @@ export const addResult = async (payload) => {
 
 //getting all the reports 
 
-export const getAllResults = async () => {
+export const getAllResults = async (filters) => {
     try {
-        const response = await axiosInstance.post("/api/results/get-all-results")
+        const response = await axiosInstance.post("/api/results/get-all-results", filters)
         return response.data
     } catch (error) {
         return error.response.data

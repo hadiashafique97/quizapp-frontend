@@ -4,6 +4,7 @@ import PageTitle from '../../../Components/PageTitle'
 import { useDispatch } from "react-redux"
 import { getAllResultsByUser } from '../../../services/Result-api'
 import { ShowSpinner, HideSpinner } from "../../../reducers/spinnerSlice"
+import moment from "moment"
 
 function UserResults() {
     const [resultsData, setResultsData] = React.useState([])
@@ -19,8 +20,10 @@ function UserResults() {
         {
             title: "Date",
             dataIndex: 'date',
-            render : (text, record)=> <>
-            {record.createdAt}
+            render : (text, record)=> <>{
+                moment(record.createdAt).format("DD-MM-YYYY hh:mm:ss")
+            }
+             
             </>
         },
 

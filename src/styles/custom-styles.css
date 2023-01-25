@@ -15,6 +15,11 @@
     padding-top: 5px;
     border-bottom: 8px dotted var(--dark);
 }
+.divider3{
+    border-bottom: 8px dotted var(--dark);
+    padding:0px; 
+    margin: 0px;
+}
 .spinner-parent{
     position: absolute;
     inset:0;

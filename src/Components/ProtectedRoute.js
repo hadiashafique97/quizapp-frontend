@@ -8,7 +8,7 @@ import { SetUser } from "../reducers/usersSlice"
 import { ShowSpinner, HideSpinner } from '../reducers/spinnerSlice'
 
 function ProtectedRoute({ children }) {
-  
+
   const { user } = useSelector((state) => state.users)
   const navigate = useNavigate()
 
@@ -28,12 +28,13 @@ function ProtectedRoute({ children }) {
       icon: <i className="ri-folder-chart-fill"></i>,
       onClick: () => navigate("/user/results")
     },
-    {
-      title: "Profile",
-      paths: ["/profile"],
-      icon: <i className="ri-user-3-fill"></i>,
-      onClick: () => navigate("/profile")
-    },
+    //have plans to make this work in the future 
+    // {
+    //   title: "Profile",
+    //   paths: ["/profile"],
+    //   icon: <i className="ri-user-3-fill"></i>,
+    //   onClick: () => navigate("/profile")
+    // },
     {
       title: "Logout",
       paths: ["/logout"],
@@ -60,16 +61,11 @@ function ProtectedRoute({ children }) {
     },
     {
       title: "Results",
-      paths: ["/resutls"],
+      paths: ["/admin/results"],
       icon: <i className="ri-folder-chart-fill"></i>,
       onClick: () => navigate("/admin/results"),
     },
-    {
-      title: "Profile",
-      paths: ["/profile"],
-      icon: <i className="ri-user-3-fill"></i>,
-      onClick: () => navigate("/profile"),
-    },
+   
     {
       title: "Logout",
       paths: ["/logout"],
@@ -106,22 +102,22 @@ function ProtectedRoute({ children }) {
   }
 
   useEffect(() => {
-    if(localStorage.getItem('token')){
+    if (localStorage.getItem('token')) {
       getUserData()
-    }else{
+    } else {
       navigate("/login")
     }
   }, [])
   const activeRoute = window.location.pathname
-  
+
   const getIsActiveOrNot = (paths) => {
-    if (paths.includes(activeRoute)){
+    if (paths.includes(activeRoute)) {
       return true
     } else {
-      if(activeRoute.includes("/admin/tests/edit") && paths.includes("/admin/tests")){
+      if (activeRoute.includes("/admin/tests/edit") && paths.includes("/admin/tests")) {
         return true
       }
-      if(activeRoute.includes("/user/write-test") && paths.includes("/user/write-test")){
+      if (activeRoute.includes("/user/write-test") && paths.includes("/user/write-test")) {
         return true
       }
     }
@@ -133,30 +129,40 @@ function ProtectedRoute({ children }) {
         <div className='sidebar'>
           <div className='menu'>
             {menu.map((item, index) => {
-              return(
-               <div className={`menu-item ${getIsActiveOrNot(item.paths) && 'active-menu-item'}`}
-                key={index} onClick={item.onClick}>
-                {item.icon}
-                {!collapsed &&<span>{item.title}</span> }
-              </div>
+              return (
+                <div className={`menu-item ${getIsActiveOrNot(item.paths) && 'active-menu-item'}`}
+                  key={index} onClick={item.onClick}>
+                  {item.icon}
+                  {!collapsed && <span>{item.title}</span>}
+                </div>
               )
             })}
           </div>
         </div>
         <div className='body'>
           <div className='header flex justify-between'>
-          {!collapsed && <i className="ri-close-circle-fill" onClick={()=> setCollapsed(true)}></i>}
-          {collapsed && <i className="ri-menu-fill" onClick={()=> setCollapsed(false)}></i>}
+            {!collapsed && <i className="ri-close-circle-fill" onClick={() => setCollapsed(true)}></i>}
+            {collapsed && <i className="ri-menu-fill" onClick={() => setCollapsed(false)}></i>}
             <h1 className="text-2xl">
               TEST ME
             </h1>
-            <div className='flex gap1 item-center'>
-            <i className="ri-user-3-fill"></i>
-              <h1 className="text-xl underline">
-              {user?.name}
-            </h1>
+            <div className='flex flex-col gap1 item-center'>
+
+              <div className='flex m0 p-bottom0'>
+                 <i className="ri-user-3-fill"></i>
+                <h2 className="text-xl">
+                  {user?.name}
+                </h2>
+              </div>
+              <span>
+                Role : {user?.isAdmin ? "Admin" : "User"}
+              </span>
+
+             
+               
+              
             </div>
-            
+
           </div>
           <div className='content'>
             {children}

@@ -1,11 +1,12 @@
 import React from 'react'
 import { Form, message } from 'antd'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { registerNewUser } from '../../../services/User-api'
 import { useDispatch } from 'react-redux'
 import { ShowSpinner, HideSpinner } from '../../../reducers/spinnerSlice'
 function Register() {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   const onFinish = async (values) => {
     try {
       dispatch(ShowSpinner())
@@ -13,6 +14,7 @@ function Register() {
       dispatch(HideSpinner())
       if (response.success) {
         message.success(response.message)
+        navigate('/login')
       } else {
         message.error(response.message)
       }

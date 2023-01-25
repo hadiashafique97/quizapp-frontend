@@ -20,8 +20,8 @@ function WriteTest() {
     const [secondsLeft = 0, setSecondsLeft] = useState(0)
     const [timesUp, setTimesUp] = useState(false)
     const [intervalId, setIntervalId] = useState(null)
-    const {user} = useSelector(state => state.users)
-    
+    const { user } = useSelector(state => state.users)
+
     const getTestsData = async () => {
         try {
             dispatch(ShowSpinner())
@@ -42,43 +42,43 @@ function WriteTest() {
     const calculateResult = async () => {
         try {
             let correctAnswers = []
-        let wrongAnswers = []
+            let wrongAnswers = []
 
-        questions.forEach((question, index) => {
-            if (question.correctAnswer === selectedChoices[index]) {
-                correctAnswers.push(question)
-            } else {
-                wrongAnswers.push(question)
+            questions.forEach((question, index) => {
+                if (question.correctAnswer === selectedChoices[index]) {
+                    correctAnswers.push(question)
+                } else {
+                    wrongAnswers.push(question)
+                }
+            })
+            let finalResult = "Pass"
+            if (correctAnswers.length < testData.passingScore) {
+                finalResult = "Fail"
             }
-        })
-        let finalResult = "Pass"
-        if (correctAnswers.length < testData.passingScore) {
-            finalResult = "Fail"
-        }
-        const tempResult ={
-            correctAnswers,
-            wrongAnswers,
-            finalResult,
-        }
-        setResult(tempResult)
-        dispatch(ShowSpinner())
-        const response = await addResult({
-            test: params.id,
-            result: tempResult, 
-            user: user._id,
+            const tempResult = {
+                correctAnswers,
+                wrongAnswers,
+                finalResult,
+            }
+            setResult(tempResult)
+            dispatch(ShowSpinner())
+            const response = await addResult({
+                test: params.id,
+                result: tempResult,
+                user: user._id,
 
-        })
-        dispatch(HideSpinner())
-        if(response.success){
-        setView("result")
-        } else {
-            message.error(response.message)
-        }
+            })
+            dispatch(HideSpinner())
+            if (response.success) {
+                setView("result")
+            } else {
+                message.error(response.message)
+            }
         } catch (error) {
             dispatch(HideSpinner())
             message.error(error.message)
         }
-        
+
     }
 
     const startTimer = () => {
@@ -87,7 +87,7 @@ function WriteTest() {
             if (totalSeconds > 0) {
                 totalSeconds = totalSeconds - 1
                 setSecondsLeft(totalSeconds)
-            
+
             } else {
                 setTimesUp(true)
             }
@@ -171,7 +171,7 @@ function WriteTest() {
                                     <button className='create-button mtop3 p3' onClick={() => {
                                         setTimesUp(true)
                                         clearInterval(intervalId)
-                                        
+
 
                                     }}>
                                         Submit
@@ -187,7 +187,7 @@ function WriteTest() {
             {view === "result" && (
                 <div className="flex item-center justify-center m2 ">
                     <div className="flex flex-col gap2 result">
-                       
+
 
                         <div className='flex flex-row'>
                             <div className='score tile text-center m2 p2'>
@@ -207,6 +207,24 @@ function WriteTest() {
                                 <h1 className='text-l'>
                                     FINAL RESULT : {result.finalResult}
                                 </h1>
+                                <div className='flex gap2'>
+                                    <button className='create-button' onClick={() => {
+                                        setView("instructions")
+                                        setSelectedQuestionIndex(0)
+                                        setSelectedChoices({})
+                                        setSecondsLeft(testData.duration)
+
+                                    }}
+                                    >
+                                        Retry
+                                    </button>
+                                    <button className=' create-button' onClick={() => {
+                                        setView("review")
+                                    }}>
+                                        Review Answers
+                                    </button>
+                                </div>
+
                             </div>
                             <div className=' flex m1 lottie'>
                                 {result.finalResult === "Pass" && (<lottie-player src="https://assets3.lottiefiles.com/packages/lf20_4qldwfx4.json" background="transparent" speed="1" loop autoplay></lottie-player>
@@ -221,6 +239,51 @@ function WriteTest() {
                         </div>
                     </div>
                 </div>)}
+            {view === "review" && (
+                <div className=' flex flex-col gap2 p1'>
+                    {questions.map((question, index) => {
+                        const isCorrect = question.correctAnswer === selectedChoices[index]
+                        return <div className={`flex flex-col gap1 p1 mtop3 tile ${isCorrect ? "bg-pass" : "bg-fail"}`}>
+                            <div className=' flex ptop2'>
+                                <h1 className='text-xl'>{index + 1} : {question.name}</h1>
+                            </div>
+                            <div className='divider 3'></div>
+                            <h1 className='text-md'>
+                                Answer Chosen : {selectedChoices[index]} - {question.choices[selectedChoices[index]]}
+                            </h1>
+                            <h1 className='text-md'> Correct Answer : {question.correctAnswer} - {question.choices[question.correctAnswer]}</h1>
+
+                        </div>
+                    })}
+
+
+                    <div className='flex flex-col justify-center gap1 item-center w25'>
+                        <button className='create-button' onClick={() => {
+                            setView("instructions")
+                            setSelectedQuestionIndex(0)
+                            setSelectedChoices({})
+                            setSecondsLeft(testData.duration)
+                        }}
+                        >
+                            Retry
+                        </button>
+                        <button className='create-button' onClick={() => {
+                            navigate('/')
+                        }}>
+                            Home
+                        </button>
+                    </div>
+
+                </div>
+
+
+
+
+
+
+            )}
+
+
 
         </div>
     )

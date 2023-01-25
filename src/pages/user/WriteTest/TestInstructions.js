@@ -1,6 +1,8 @@
-import React from 'react'
+    import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 function TestInstructions({ testData, setView, startTimer }) {
+    const navigate = useNavigate()
     return (
         <div className='flex flex-col'>
             <h1 className='text-xl underline mtop3 text-center'>
@@ -24,7 +26,8 @@ function TestInstructions({ testData, setView, startTimer }) {
                 </ol>
 
             </div>
-            <div className='flex justify-end ptop2'>
+            <div className='flex justify-end gap1 ptop2'>
+                <button className='create-button' onClick={()=>navigate("/")}>Close</button>
                 <button className='create-button' onClick={() => {
                     startTimer()
                     setView("questions")

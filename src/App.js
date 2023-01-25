@@ -22,6 +22,7 @@ import Spinner from './Components/Spinner'
 import { useSelector } from 'react-redux'
 import WriteTest from './pages/user/WriteTest/WriteTest-index'
 import UserResults from './pages/user/UserResults/UserResults'
+import AdminResults from './pages/admin/Tests/AdminResults/AdminResults'
 
 
 
@@ -65,8 +66,14 @@ function App() {
           </ProtectedRoute>
           }
           />
+          
           <Route path="/admin/tests/edit/:id" element={<ProtectedRoute>
             <CreateEditTest />
+          </ProtectedRoute>
+          }
+          />
+          <Route path="/admin/results" element={<ProtectedRoute>
+            <AdminResults />
           </ProtectedRoute>
           }
           />

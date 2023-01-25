@@ -42,6 +42,4 @@
 .active-menu-item{
     box-shadow: 2px 2px 2px var(--dark);
     border-bottom:3px solid var(--dark);
-    
-    
 }
