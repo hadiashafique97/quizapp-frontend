@@ -4,7 +4,7 @@
 A Full MERN Stack quiz app. This idea was inspired by quizlet, I wanted to create something I could use even after I graduate from my PerScholas bootcamp as a study tool to help myself and any one else prepare for things like Interview Questions as well as other different categories of the Software World.
 
 ### Live Link
-[TEST-ME](https://quiz-app-ui.onrender.com)
+[TEST-ME](https://quiz-app-ui.onrender.com/)
 
 ### Github 
 
