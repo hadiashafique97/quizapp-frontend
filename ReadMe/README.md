@@ -51,6 +51,8 @@ With the pictures displayed below this differentiates between users and is able 
 
 
 ## User
+In between pages there is a loader added purposefully 
+
 Once logged in the User will see this as their Home Page: 
 ![user-homepg](user-homepg.jpg.png) 
 
