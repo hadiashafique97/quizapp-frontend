@@ -60,7 +60,7 @@ function Home() {
                 Duration: {test.duration}
                 </h1>
                 <button className='create-button' onClick={()=> navigate(`/user/write-test/${test._id}`)}>
-                  Attempt Test
+                   Test
                 </button>
               </div>
 

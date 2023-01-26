@@ -23,8 +23,8 @@ background: linear-gradient(to right, #19547b, #ffd89b); /* W3C, IE 10+/ Edge, F
 
 
 .bg-pass{
-  background-image: linear-gradient(to right, #e4afcb 0%, #b8cbb8 0%, #b8cbb8 0%, #e2c58b 30%, #c2ce9c 64%, #7edbdc 100%); 
+  background-image: linear-gradient(to right, #e4afcb 0%, #b8cbb8 0%, #b8cbb8 0%, #e2c58b 30%, #c2ce9c 64%, #7edbdc 100%) !important; 
 }
 .bg-fail{
-  background-image: linear-gradient(to right, #f78ca0 0%, #f9748f 19%, #fd868c 60%, #fe9a8b 100%);   
+  background-image: linear-gradient(to right, #ed5d78 0%, #9f384d 19%, #d5797e 60%, #fe9a8b 100%) !important;   
   }

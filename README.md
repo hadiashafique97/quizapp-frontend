@@ -12,11 +12,10 @@ A Full MERN Stack quiz app. This idea was inspired by quizlet, I wanted to creat
 
 [Back-End](https://github.com/hadiashafique97/quizapp-backend.git)
 
-## Access 
+## Getting Started
 
 You can fork and or clone the repo by copy and pasting the following in your terminal. You will also need to install the dependencies displayed below to correctly get the app to work 
 
-![dependencies](dependencies.jpg.png)
 
 Backend
 
@@ -25,6 +24,8 @@ Backend
 Frontend
 
 `git clone https://github.com/hadiashafique97/quizapp-frontend.git`
+
+![dependencies](dependencies.jpg.png)
 
 ## The App / How To
 
@@ -55,7 +56,8 @@ Once logged in the User will see this as their Home Page:
 
 As you can see the User does not have the Tests tab and they can either stay on the home tab and click on Attempt Test to start a Test or Results to view their own results the user can also click on Logout to logout and navigate to the main login page. 
 
-Under the Results 
+Under the Results this is what the user will see
+![user-results](user-results.jpg.png)
 
 
 
@@ -73,3 +75,68 @@ If the Admin chooses to create Test a form pops up with the alotted data that is
 The Results tab for the Admin allows the admin to view All user Results and have the ability to search by user or test using the fields up top and the Search button which will search the table for the specific requirements. The clear button will clear out the fields and the specific search pool. 
 
 ![admin-resultspg](admin-results.jpg.png)
+
+## Both 
+
+Both are able to access Tests that show up on the Home page as shown above. To start the test the User whether admin or not will need to select Test button to be navigated to the test page. 
+
+Before the test comes up there are instructions going over the logic of the test and explaing the ground rules. The user can then clik on the start test to start the test or close to navigate back to home.
+
+![instructions](test-instructions.jpg.png)
+
+During the Test there is a timer present in the top right hand corner and as the user hovers over the answer button the color will change. If the timer ends the quiz will stop and if the passing score has not been met user will automatically fail. There is also next an previous buttons on the botom left and right hand corner that allow the user to navigate between questions. 
+![testpg](testpg.jpg.png)
+
+The answer once selected is highlighted a different color to let the user know that that is the answer they have chosen. Once the last question is reached the Submit button will pop up which you can then click to submit the test.
+
+![answer](answer.jpg.png)
+
+After submitting the test the user will be directed to the result page of that test displaying the stats and final result whether "PASS" or "FAIL" with specific animations. The user can either choose to retry which will navigate user to the test again or review answers which will take the user to the review section.
+
+![finalresult](final-result.jpg.png)
+
+If the user navigates to the review page their question tile will be highlight a different color depending on what they got right or wrong. 
+
+The user also has buttons to navigate to retry which will take them to instructions page or home which will redirect to the home page.
+![review-pg](review-pg.jpg.png)
+
+## Technologies Used 
+
+
+
+- HTML
+- JavaScript
+- Ant Design Library
+- API's
+- MERN Stack Fullstack
+- React
+- Express
+- Node
+- MongoDb
+- Mongoose
+- Axios
+- $Regex
+- CSS
+- Redux 
+- Github
+- JWT 
+- BCrypt
+
+
+## Future Hopes & Endeavors
+
+My goal is to style it a little differently and potentailly add a tab that has profile which will allow users to edit their profiles and other data pertaining to user specific details. I also would like to give access to all users to be able to create their tests so its user friendly and inclusive to other test topics.
+
+## Resources
+
+- [w3Schools](https://www.w3schools.com/css/css3_shadows_box.asp)
+
+- [Ant-Design](https://ant.design/docs/react/introduce#use-modularized-antd)
+
+- [Youtube](https://www.youtube.com/watch?v=hcGEyh_nBCU)
+
+- [Github](https://github.com/jaspreet145/QuizApp)
+
+- [Udemy](https://www.udemy.com/course/mern-stack-online-quiz-portal-application/)
+
+- [CSS-Gradient](https://cssgradient.io/gradient-backgrounds/)
