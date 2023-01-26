@@ -25,40 +25,40 @@ Frontend
 
 `git clone https://github.com/hadiashafique97/quizapp-frontend.git`
 
-![dependencies](dependencies.jpg.png)
+![dependencies](dependencies.jpg)
 
 ## The App / How To
 
 When you first click on the live link the User is pointed to a login page as shown below : 
-![loginpg](Loginpg.jpg.png) The user if returning can Login or if a New User can click on the New User? option underneath the login button to be directed to the register new user page to create an account. 
+![loginpg](Loginpg.jpg) The user if returning can Login or if a New User can click on the New User? option underneath the login button to be directed to the register new user page to create an account. 
 
 Also as shown in the picture if accidentally gone to the create new user page, user can click on the Existing User link underneath the Create User button to navigate back to the login page. 
 
 
-![newuser](newuser.jpg.png)
+![newuser](newuser.jpg)
  Once login has been created the user will be redirected to the login page and a message of successfully creating the account will display as also shown below. If an email already exists the user will get an error message stating that the account already exists.
 
 
 The quiz app accepts two types of users. One is a regular user where as the other is admin. The admin access has been present by me and cannot be changed in the app itself only in the backend database via MongoDb. 
 
-On the Home page at the top of the header it will display user name and user Role differentiating between wheter a user is an admin status or not.
+On the Home page at the top of the header it will display user name and user role differentiating between wheter a user is an admin status or not.
 
 ## User
 In between pages there is a loader added purposefully 
 
 Once logged in the User will see this as their Home Page: 
-![user-homepg](user-homepg.jpg.png) 
+![user-homepg](user-homepg.jpg) 
 
 As you can see the User does not have the Tests tab and they can either stay on the home tab and click on Attempt Test to start a Test or Results to view their own results the user can also click on Logout to logout and navigate to the main login page. 
 
 
 ## Admin
 Where as the Admin will see :
-![admin-homepg](admin-homepg.jpg.png)
+![admin-homepg](adminhome.jpg)
 
 As you can see the admin has the Tests tab which allows the admin to create new Tests, edit existing Test fields like test details and even the test questions. 
 
-If the Admin chooses to create Test a form pops up with the alotted data that is needed to be accepted in the Test field. IF the user chooses to click on the pencil it will then navigate the admin to the Edit page where there will be two different tabs test-info to edit test details and or Questions? to edit questions. The Delete bin simply deletes the test
+If the Admin chooses to create Test a form pops up with the alotted data that is needed to be accepted in the Test field. IF the user chooses to click on the pencil it will then navigate the admin to the Edit page where there will be two different tabs test-info to edit test details and or Questions? to edit questions. The Delete bin simply deletes the test.
 
 The Results tab for the Admin allows the admin to view All user Results and have the ability to search by user or test using the fields up top and the Search button which will search the table for the specific requirements. The clear button will clear out the fields and the specific search pool. 
 
@@ -69,14 +69,10 @@ Both are able to access Tests that show up on the Home page as shown above. To s
 
 Before the test comes up there are instructions going over the logic of the test and explaing the ground rules. The user can then clik on the start test to start the test or close to navigate back to home.
 
-![instructions](test-instructions.jpg.png)
-
 During the Test there is a timer present in the top right hand corner and as the user hovers over the answer button the color will change. If the timer ends the quiz will stop and if the passing score has not been met user will automatically fail. There is also next an previous buttons on the botom left and right hand corner that allow the user to navigate between questions. 
-![testpg](testpg.jpg.png)
+![testpg](test.jpg)
 
 The answer once selected is highlighted a different color to let the user know that that is the answer they have chosen. Once the last question is reached the Submit button will pop up which you can then click to submit the test.
-
-![answer](answer.jpg.png)
 
 After submitting the test the user will be directed to the result page of that test displaying the stats and final result whether "PASS" or "FAIL" with specific animations. The user can either choose to retry which will navigate user to the test again or review answers which will take the user to the review section.
 
