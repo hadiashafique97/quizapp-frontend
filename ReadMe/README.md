@@ -36,19 +36,12 @@ Also as shown in the picture if accidentally gone to the create new user page, u
 
 
 ![newuser](newuser.jpg.png)
- Once login has been created the user will be redirected to the login page and a message of successfully creating the account will display as also shown below. If an email already exists the user will get an error message stating that the account already exists like shown below.
-![logincreated](logincreated.jpg.png)
-![loginexists](loginexists.jpg.png)
+ Once login has been created the user will be redirected to the login page and a message of successfully creating the account will display as also shown below. If an email already exists the user will get an error message stating that the account already exists.
+
 
 The quiz app accepts two types of users. One is a regular user where as the other is admin. The admin access has been present by me and cannot be changed in the app itself only in the backend database via MongoDb. 
 
-With the pictures displayed below this differentiates between users and is able to let the user know whether they have admin access or not. This is displayed on the home page on top of the header once the user signs in.
-
-![admin](admin.jpg.png)
-![user](user.jpg.png)
-
-
-
+On the Home page at the top of the header it will display user name and user Role differentiating between wheter a user is an admin status or not.
 
 ## User
 In between pages there is a loader added purposefully 
@@ -58,11 +51,6 @@ Once logged in the User will see this as their Home Page:
 
 As you can see the User does not have the Tests tab and they can either stay on the home tab and click on Attempt Test to start a Test or Results to view their own results the user can also click on Logout to logout and navigate to the main login page. 
 
-Under the Results this is what the user will see
-![user-results](user-results.jpg.png)
-
-
-
 
 ## Admin
 Where as the Admin will see :
@@ -70,13 +58,10 @@ Where as the Admin will see :
 
 As you can see the admin has the Tests tab which allows the admin to create new Tests, edit existing Test fields like test details and even the test questions. 
 
-![admintestpg](admin-testspage.jpg.png)
-
 If the Admin chooses to create Test a form pops up with the alotted data that is needed to be accepted in the Test field. IF the user chooses to click on the pencil it will then navigate the admin to the Edit page where there will be two different tabs test-info to edit test details and or Questions? to edit questions. The Delete bin simply deletes the test
 
 The Results tab for the Admin allows the admin to view All user Results and have the ability to search by user or test using the fields up top and the Search button which will search the table for the specific requirements. The clear button will clear out the fields and the specific search pool. 
 
-![admin-resultspg](admin-results.jpg.png)
 
 ## Both 
 
@@ -95,16 +80,12 @@ The answer once selected is highlighted a different color to let the user know t
 
 After submitting the test the user will be directed to the result page of that test displaying the stats and final result whether "PASS" or "FAIL" with specific animations. The user can either choose to retry which will navigate user to the test again or review answers which will take the user to the review section.
 
-![finalresult](final-result.jpg.png)
-
 If the user navigates to the review page their question tile will be highlight a different color depending on what they got right or wrong. 
 
 The user also has buttons to navigate to retry which will take them to instructions page or home which will redirect to the home page.
-![review-pg](review-pg.jpg.png)
+
 
 ## Technologies Used 
-
-
 
 - HTML
 - JavaScript
